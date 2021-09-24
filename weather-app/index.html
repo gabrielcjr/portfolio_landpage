@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Check the Weather</title>
+</head>
+<body>
+        <h1>Check Your City's Weather</h1>   
+        <div>
+            <input type="text" id="city" >
+        </div>
+        <form>
+            <input type="button" value="Go back!" onclick="history.back()">
+           </form>
+        <script>
+            document.getElementById('city').addEventListener("keyup", function(event) {
+                event.preventDefault();
+                if (event.key === 13 || event.key === 'Enter') {
+                window.location.href="http://gabrielc.tech/weather/api/"+this.value;
+            }});
+            
+        </script>
+</body>

@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  weather-app:
+    build:
+      context: weather-app
+    container_name: weather-app
+    entrypoint: npm start
+    networks: 
+      - node-network
+    tty: true
+    ports:
+      - 4000:4000
+
+  # webpage:
+  #   build:
+  #     context: node
+  #   container_name: webpage
+  #   entrypoint: npm start
+  #   networks: 
+  #     - node-network
+  #   tty: true
+  #   ports:
+  #     - 8080:8080
+  
+  nginx:
+    build:
+      context: port-website
+    container_name: nginx
+    restart: always
+  #  volumes:
+  #    - ./port-website/default.conf:/etc/nginx/conf.d/default.conf
+    networks: 
+      - node-network
+    tty: true
+    ports:
+      - 80:80
+
+networks: 
+  node-network:
+    driver: bridge

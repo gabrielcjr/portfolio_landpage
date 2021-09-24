@@ -1,0 +1,245 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 22px;
+    background-color: black;
+    color: seashell;
+
+}
+
+header {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: 'Lexend Mega', sans-serif;
+    font-size: 3rem;
+    text-decoration: none;
+    padding: 0.5rem ;
+}
+
+a:link, a:visited {
+    color: seashell;
+    text-decoration: underline;
+}
+
+a:hover, a:active {
+    color: seashell;
+
+}
+
+header .container nav {
+    padding: 2rem;
+
+}
+
+nav a {
+    padding: 1rem;
+}
+
+.banner {
+    background-image: url("../img/black-and-white-abstract-background.jpg");
+    height: 34.54rem;
+    background-size: cover;
+    object-fit: contain;
+    max-width: 100%;
+    display: flex;
+    place-content: center;
+    place-items: center;
+}
+
+.banner h1 {
+    background-color: seashell;
+    color: black;
+}
+
+#portfolio #skill {
+    text-align: center;
+}
+
+#port {
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    max-width: 80rem;
+    font-size: 15rem;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin: auto;
+}
+
+
+#portfolio .grid div {
+    padding: 2rem;
+    margin: 4rem;
+    border: solid 1px white;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+@media only screen and (max-width: 500px) {
+    .portfolio {
+        flex-direction: column;
+    }
+
+#portfolio .grid div {
+    flex-grow: 0.5;
+    flex-shrink: 0;
+    padding: 0.5rem;
+    margin: 2rem;
+    }
+}
+
+
+
+#amae {
+    background-image: url("../img/portfolio-1.png");
+    background-size: cover;
+    width: 22.73rem;
+    height: 13.64rem;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+#photomatic {
+    background-image: url("../img/portfolio-2.png");
+    background-size: cover;
+    width: 22.73rem;
+    height: 13.64rem;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+#tea {
+    background-image: url("../img/portfolio-3.png");
+    background-size: cover;
+    width: 22.73rem;
+    height: 13.64rem;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+#aprisco {
+    background-image: url("../img/portfolio-4.png");
+    background-size: cover;
+    width: 22.73rem;
+    height: 13.64rem;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+.skill {
+    text-align: center;
+    background-color: seashell;
+    color: black;
+    padding: 2rem;
+}
+
+.skill h2 {
+    padding-bottom: 2rem;
+}
+
+.grid2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+}
+
+.grid2  > * {
+    font-size: 2em;
+    width: 2em;
+
+}
+
+.experience {
+    background-color: lightslategray;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+}
+
+.experience h2 {
+    padding-bottom: 2rem;
+}
+
+.experience p {
+    margin-top: 0.5rem;
+}
+
+#codeimg {
+    width: 10rem;
+    height: auto;
+    align-self: center;
+    padding-bottom: 0.5rem;
+}
+
+footer .logo {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    flex-direction: column;
+}
+
+.social {
+    display: flex;
+}
+
+.info {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.social a {
+    margin: 1rem;
+}
+
+.phone {
+    margin: 0.3rem;
+}
+
+.photo {
+    margin-left: 10rem;
+}
+
+@media only screen and (max-width: 500px) {
+    .info {
+        flex-direction: column;
+    }
+    .contact {
+        flex-direction: column;
+    }
+    .photo {
+        padding: 1rem 0;
+        margin: auto;
+
+    }
+}
+
+.photo img {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 15rem;
+    width: auto;
+}
+
+small .copy {
+    margin-top: 1rem;
+    text-align: center;
+}
