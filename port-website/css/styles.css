@@ -55,7 +55,11 @@ nav a {
     color: black;
 }
 
-#portfolio #skill {
+#portfolio1 #skill {
+    text-align: center;
+}
+
+#portfolio2 #skill {
     text-align: center;
 }
 
@@ -76,7 +80,15 @@ nav a {
 }
 
 
-#portfolio .grid div {
+#portfolio1 .grid div {
+    padding: 2rem;
+    margin: 4rem;
+    border: solid 1px white;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#portfolio2 .grid div {
     padding: 2rem;
     margin: 4rem;
     border: solid 1px white;
@@ -89,7 +101,14 @@ nav a {
         flex-direction: column;
     }
 
-#portfolio .grid div {
+#portfolio1 .grid div {
+    flex-grow: 0.5;
+    flex-shrink: 0;
+    padding: 0.5rem;
+    margin: 2rem;
+    }
+
+#portfolio2 .grid div {
     flex-grow: 0.5;
     flex-shrink: 0;
     padding: 0.5rem;
@@ -128,6 +147,14 @@ nav a {
 
 #aprisco {
     background-image: url("../img/portfolio-4.png");
+    background-size: cover;
+    width: 22.73rem;
+    height: 13.64rem;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+#weather-app {
+    background-image: url("../img/weather.jpg");
     background-size: cover;
     width: 22.73rem;
     height: 13.64rem;

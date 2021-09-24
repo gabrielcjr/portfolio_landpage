@@ -4,6 +4,8 @@ import fetch from 'node-fetch';
 
 let cityRouter = express.Router();
 
+console.log('teste2' + process.env.API_KEY);
+
 // This param will receive each city that is input by the user
 cityRouter.param('city', (req, res, next, id) => {
   req.city = id;

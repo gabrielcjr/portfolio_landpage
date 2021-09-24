@@ -6,6 +6,10 @@ services:
       context: weather-app
     container_name: weather-app
     entrypoint: npm start
+    volumes:
+      - ./weather-app:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
     networks: 
       - node-network
     tty: true
@@ -28,8 +32,8 @@ services:
       context: port-website
     container_name: nginx
     restart: always
-  #  volumes:
-  #    - ./port-website/default.conf:/etc/nginx/conf.d/default.conf
+    volumes:
+      - ./port-website:/var/www/html
     networks: 
       - node-network
     tty: true
