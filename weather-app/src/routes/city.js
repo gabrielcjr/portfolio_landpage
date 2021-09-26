@@ -4,14 +4,11 @@ import fetch from 'node-fetch';
 
 let cityRouter = express.Router();
 
-console.log('teste2' + process.env.API_KEY);
-
 // This param will receive each city that is input by the user
 cityRouter.param('city', (req, res, next, id) => {
   req.city = id;
   next();
 });
-
 
 // This get route will handle all the core functions to display the page with parsed JSON data from Accuweather API
 cityRouter.get('/:city', (req, res) => {
