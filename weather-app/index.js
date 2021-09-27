@@ -15,9 +15,9 @@ app.get('/weather', (req, res) => {
   res.sendFile(fileName, options)
 });
 
-import cityRouter from './city.js';
+import weatherRouter from './src/routes/weather.js';
 
 // This line separates the city route to another module. 
-app.use('/weather/api/', cityRouter);
+app.use('/weather/api/', weatherRouter);
 
 app.listen(PORT, () => console.log(`Running on ${PORT}`));

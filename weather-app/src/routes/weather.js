@@ -2,16 +2,16 @@ import 'dotenv/config';
 import express from 'express';
 import fetch from 'node-fetch';
 
-let cityRouter = express.Router();
+let weatherRouter = express.Router();
 
 // This param will receive each city that is input by the user.
-cityRouter.param('city', (req, res, next, id) => {
+weatherRouter.param('city', (req, res, next, id) => {
   req.city = id;
   next();
 });
 
 // This get route will handle all the core functions to display the page with parsed JSON data from Accuweather API
-cityRouter.get('/:city', (req, res) => {
+weatherRouter.get('/:city', (req, res) => {
   
   // Changes city names with spaces to a encodeURI, that way it can be readable by the API
   const locationURL = encodeURI(req.city); 
@@ -27,7 +27,6 @@ cityRouter.get('/:city', (req, res) => {
     // node-fetch package was used to fetch the JSON file from Accuweather API
     const response1 = await fetch(pageKey);
     const apiJsonKey = await response1.json();
-    console.log(apiJsonKey);
     if (typeof(apiJsonKey[0]) === 'undefined') {
       return console.log(`wrong city's code`)
     } else {
@@ -52,7 +51,6 @@ cityRouter.get('/:city', (req, res) => {
   // This function will separate the necessary info from the JSON received from Accuweather and display then in the page.
   const getElements = async () => {
     const apiJsonWeather = await getCityForecast();
-    console.log(typeof(apiJsonWeather))
     if (typeof(apiJsonWeather) === 'object') {
         // The following four variables will receive the temperature, condition, if it is day time and the icon that
         // will be displayed in the page
@@ -77,4 +75,4 @@ cityRouter.get('/:city', (req, res) => {
 
 });
 
-export default cityRouter;
+export default weatherRouter;
