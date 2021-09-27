@@ -6,7 +6,7 @@ const app = express();
 const __dirname = path.resolve();
 
 // This get route will display the static page that will display the input field that will receive the name
-// of the city
+// of the city.
 app.get('/weather', (req, res) => {
   const options = {
     root: path.join(__dirname)

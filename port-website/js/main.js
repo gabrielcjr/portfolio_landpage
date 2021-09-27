@@ -28,6 +28,9 @@ hoverAll[2].onmouseout = function () {mouseOut(hoverAll[2])};
 hoverAll[3].onmouseover = function () {hoover(hoverAll[3])};
 hoverAll[3].onmouseout = function () {mouseOut(hoverAll[3])};
 
+hoverAll[4].onmouseover = function () {hoover(hoverAll[4])};
+hoverAll[4].onmouseout = function () {mouseOut(hoverAll[4])};
+
 /* Zoom-in on hover of contacts icons */
 
 let github = document.getElementById('github')
