@@ -11,7 +11,7 @@ app.get('/weather', (req, res) => {
   const options = {
     root: path.join(__dirname)
 };
-  const fileName = 'index.html';
+  const fileName = 'index.html'
   res.sendFile(fileName, options)
 });
 

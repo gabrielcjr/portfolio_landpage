@@ -3,13 +3,19 @@
     <title>Check the Weather</title>
 </head>
 <body>
-        <h1>Check a Brazilian City's Weather</h1>   
+        <h1>Check a Brazilian City's Weather</h1>
         <div>
-            <input type="text" id="city" >
-        </div>
+            <input type="text" id="city" ><br>
+            <small>Ex.: São Paulo, Rio de Janeiro, Salvador, Porto Alegre, etc</small>   
+        </div><br>
         <form>
             <input type="button" value="Go back!" onclick="history.back()">
-           </form>
+        </form><br>
+        <small>This application is running on Docker Container, using Node and Express.Js. 
+            <br>It gets a Brazilian City's name from the user, fetch a Json from Accuweather API with all info about the current weather.
+            <br> Then, it returns the Temperature, Condition, if it's day or night, and the Icon of the current condition.
+            <br> For a better development maintance of the code, docker volume is being used with Nodemon for a quick reset of the server running on a GCP Virtual Machine.
+        </small> 
         <script>
             document.getElementById('city').addEventListener("keyup", function(event) {
                 event.preventDefault();
