@@ -17,16 +17,21 @@ services:
     ports:
       - 4000:4000
 
-  # webpage:
-  #   build:
-  #     context: node
-  #   container_name: webpage
-  #   entrypoint: npm start
-  #   networks: 
-  #     - node-network
-  #   tty: true
-  #   ports:
-  #     - 8080:8080
+  boss-machine:
+    build:
+      context: port-website/expressjs-boss-machine
+    container_name: boss-machine
+    entrypoint: npm start
+    volumes:
+      - ./port-website/expressjs-boss-machine:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    networks: 
+      - node-network
+    tty: true
+    ports:
+      - 4001:4001
+
   
   nginx:
     build:
