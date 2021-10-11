@@ -54,36 +54,36 @@ app.param('id', (req, res, next, id) => {
   }
 })
 
-app.get('/api/:model', (req, res, next) => {
+app.get('/boss-machine/api/:model', (req, res, next) => {
   const getAllModels = db.getAllFromDatabase(req.id);
   res.status(200).send(getAllModels);
 })
 
-app.get('/api/:model/:id', (req, res, next) => {
+app.get('/boss-machine/api/:model/:id', (req, res, next) => {
   const getById = db.getFromDatabaseById(req.id, req.id2);
   res.status(200).send(getById);
 })
 
-app.post('/api/:model', checkMillion, (req, res, next) => {
+app.post('/boss-machine/api/:model', checkMillion, (req, res, next) => {
   const newPost = req.body;
   db.addToDatabase(req.id, newPost);
   res.status(201).send(newPost);
   }
 )
 
-app.put('/api/:model/:id', (req, res, next) => {
+app.put('/boss-machine/api/:model/:id', (req, res, next) => {
   const updatePost = req.body;
   db.updateInstanceInDatabase(req.id, updatePost);
   res.status(200).send(updatePost);
 })
 
-app.delete('/api/:model/:id', (req, res, next) => {
+app.delete('/boss-machine/api/:model/:id', (req, res, next) => {
   const deletePost = req.id2;
   db.deleteFromDatabasebyId(req.id, deletePost);
   res.status(204).send(deletePost);
 })
 
-app.delete('/api/meetings', (req, res, next) => {
+app.delete('/boss-machine/api/meetings', (req, res, next) => {
   db.deleteAllFromDatabase('meetings');
   res.status(204).send();
 })

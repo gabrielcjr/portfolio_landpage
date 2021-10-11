@@ -17,20 +17,20 @@ services:
     ports:
       - 4000:4000
 
-  boss-machine:
-    build:
-      context: port-website/expressjs-boss-machine
-    container_name: boss-machine
-    entrypoint: npm start
-    volumes:
-      - ./port-website/expressjs-boss-machine:/usr/src/app
-      - /usr/src/app/node_modules
-    restart: always
-    networks: 
-      - node-network
-    tty: true
-    ports:
-      - 4001:4001
+  # boss-machine:
+  #   build:
+  #     context: port-website/boss-machine
+  #   container_name: boss-machine
+  #   entrypoint: npm start
+  #   volumes:
+  #     - ./port-website/boss-machine:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   restart: always
+  #   networks: 
+  #     - node-network
+  #   tty: true
+  #   ports:
+  #     - 4001:4001
 
   
   nginx:
@@ -46,6 +46,9 @@ services:
     tty: true
     ports:
       - 80:80
+    depends_on:
+      # - boss-machine
+      - weather-app
 
 networks: 
   node-network:
