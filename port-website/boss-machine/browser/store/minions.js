@@ -33,7 +33,7 @@ export const updateMinion = minion => {
 // Thunks
 
 export const createMinionThunk = minion => dispatch => {
-  axios.post('http://boss-machine:4001/api/minions', minion)
+  axios.post('http://boss-machine:4001/boss-machine/api/minions', minion)
   .then(res => res.data)
   .then(createdMinion => {
     dispatch(addMinion(createdMinion));
@@ -43,7 +43,7 @@ export const createMinionThunk = minion => dispatch => {
 }
 
 export const updateMinionThunk = minion => dispatch => {
-  axios.put(`http://boss-machine:4001/api/minions/${minion.id}`, minion)
+  axios.put(`http://boss-machine:4001/boss-machine/api/minions/${minion.id}`, minion)
   .then(res => res.data)
   .then(updatedMinion => {
     dispatch(updateMinion(updatedMinion));
@@ -53,10 +53,10 @@ export const updateMinionThunk = minion => dispatch => {
 }
 
 export const deleteMinionThunk = minionId => dispatch => {
-  axios.delete(`http://boss-machine:4001/api/minions/${minionId}`)
+  axios.delete(`http://boss-machine:4001/boss-machine/api/minions/${minionId}`)
   .then(res => res.data)
   .then(() => {
-    return axios.get(`http://boss-machine:4001/api/minions`)
+    return axios.get(`http://boss-machine:4001/boss-machine/api/minions`)
   })
   .then(res => res.data)
   .then(allMinions => {
