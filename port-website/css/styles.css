@@ -162,6 +162,15 @@ nav a {
     object-fit: cover;
     background-repeat: no-repeat;
 }
+
+#boss-machine {
+    background-image: url("../img/boss-machine.png");
+    background-size: cover;
+    width: 22.73rem;
+    height: 13.64rem;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
 .skill {
     text-align: center;
     background-color: seashell;
