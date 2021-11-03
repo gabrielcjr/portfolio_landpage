@@ -35,7 +35,6 @@ weatherRouter.get('/:city', (req, res) => {
     // Returning the Key value from the array index 0 that contains the city code needed.
     
   }
-
   // This function calls getCityCode to save the city code and request the final JSON with all current weather data
   const getCityForecast = async () => {
     const keyLocation = await getCityCode();
