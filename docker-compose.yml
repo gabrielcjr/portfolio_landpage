@@ -33,23 +33,23 @@ services:
   #     - 4001:4001
 
   
-  # nginx:
-  #   build:
-  #     context: port-website
-  #     dockerfile: .docker/Dockerfile
-  #   container_name: nginx
-  #   restart: always
-  #   volumes:
-  #     - ./port-website:/var/www/html
-  #     - ./port-website/nginx:/etc/nginx/conf.d
-  #   networks: 
-  #     - portfolio
-  #   tty: true
-  #   ports:
-  #     - 80:80
-  #   depends_on:
-  #     - boss-machine
-  #     - weather-app
+  nginx:
+    build:
+      context: port-website
+      dockerfile: .docker/Dockerfile
+    container_name: nginx
+    restart: always
+    volumes:
+      - ./port-website:/var/www/html
+      - ./port-website/nginx:/etc/nginx/conf.d
+    networks: 
+      - portfolio
+    tty: true
+    ports:
+      - 80:80
+    depends_on:
+      # - boss-machine
+      - weather-app
 
 networks: 
   portfolio:

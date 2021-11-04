@@ -1,10 +1,15 @@
 import fetch from 'node-fetch';
 
+var locationURL = '';
+var apiKey = '';
+var pageKey = '';
+var city = '';
 // This function provides the city code
 const getCityCode = async () => {
   // node-fetch package was used to fetch the JSON file from Accuweather API
   try {
     const response1 = await fetch(pageKey);
+    
     const apiJsonKey = await response1.json();
     if (typeof(apiJsonKey[0]) === 'undefined') {
       return console.log(`wrong city's code`)
@@ -46,7 +51,7 @@ const getElements = async () => {
         }
       const iconLink = `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
 
-      return `<h1>City: ${req.city}</h1> <h3>Temperature: ${temperature}</h3> <h3>Condition: ${condition}</h3> <h3>Is it Daylight? ${isDayLight}</h3> <image src="${iconLink}"></image><form><input type="button" value="Go back!" onclick="history.back()"></form>`;
+      return `<h1>City: ${city}</h1> <h3>Temperature: ${temperature}</h3> <h3>Condition: ${condition}</h3> <h3>Is it Daylight? ${isDayLight}</h3> <image src="${iconLink}"></image><form><input type="button" value="Go back!" onclick="history.back()"></form>`;
     } else if (typeof(apiJsonWeather) === 'undefined') {
         return `Please, select a valid city's name <br><form><input type="button" value="Go back!" onclick="history.back()"></form>`;
     }}
@@ -55,16 +60,16 @@ const getElements = async () => {
   }
 }
 
-const weather = (req, res) => {
+const weather = async (req, res) => {
   // Changes city names with spaces to a encodeURI, that way it can be readable by the API
-  const locationURL = encodeURI(req.city);
+  city = req.city;
+  locationURL = encodeURI(req.city);
   // the project to github without sending the api key tha is in .env file
-  const apiKey = process.env.API_KEY;
+  apiKey = process.env.API_KEY;
 
-  const pageKey = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${locationURL}`;
+  pageKey = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${locationURL}`;
 
-  res.send(getElements());
-         
+  res.send(await getElements());   
 }
 
 export default weather;
