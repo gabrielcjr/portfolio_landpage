@@ -5,9 +5,9 @@ const PORT = process.env.PORT;
 const app = express();
 const __dirname = path.resolve();
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
-app.set('views', path.join(__dirname, './src/views'))
+app.set('views', path.join(__dirname, './src/views'));
 
 app.get('/weather', (req, res) => {
     res.render('weather');

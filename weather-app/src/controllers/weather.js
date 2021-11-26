@@ -12,9 +12,9 @@ const getCityCode = async () => {
     
     const apiJsonKey = await response1.json();
     if (typeof(apiJsonKey[0]) === 'undefined') {
-      return console.log(`wrong city's code`)
+      return console.log(`wrong city's code`);
     } else {
-      return apiJsonKey[0].Key
+      return apiJsonKey[0].Key;
   }}
   catch (error) {
     console.log(`error in the function getCityCode ${error}`);
@@ -47,9 +47,9 @@ const getElements = async () => {
       let icon = Number(apiJsonWeather[0].WeatherIcon);
 
         if (icon <= 10) {
-          icon = `0${icon}`
+          icon = `0${icon}`;
         }
-      const iconLink = `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
+      const iconLink = `https://developer.accuweather.com/sites/default/files/${icon}-s.png`;
 
       return `<h1>City: ${city}</h1> <h3>Temperature: ${temperature}</h3> <h3>Condition: ${condition}</h3> <h3>Is it Daylight? ${isDayLight}</h3> <image src="${iconLink}"></image><form><input type="button" value="Go back!" onclick="history.back()"></form>`;
     } else if (typeof(apiJsonWeather) === 'undefined') {
