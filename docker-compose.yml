@@ -11,8 +11,6 @@ services:
       - ./weather-app:/usr/src/app
       - /usr/src/app/node_modules
     restart: always
-    networks: 
-      - portfolio
     tty: true
     ports:
       - 4000:4000
@@ -26,31 +24,46 @@ services:
       - ./port-website/boss-machine:/usr/src/app
       - /usr/src/app/node_modules
     restart: always
-    networks: 
-      - portfolio
+
     tty: true
     ports:
       - 4001:4001
 
   
-  nginx:
-    build:
-      context: port-website
-      dockerfile: .docker/Dockerfile
-    container_name: nginx
-    restart: always
-    volumes:
-      - ./port-website:/var/www/html
-      - ./port-website/nginx:/etc/nginx/conf.d
-    networks: 
-      - portfolio
-    tty: true
-    ports:
-      - 80:80
-    depends_on:
-      - boss-machine
-      - weather-app
+  # nginx:
+  #   build:
+  #     context: port-website
+  #     dockerfile: .docker/Dockerfile
+  #   container_name: nginx
+  #   restart: always
+  #   volumes:
+  #     - ./port-website:/var/www/html
+  #     - ./port-website/nginx:/etc/nginx/conf.d
 
-networks: 
-  portfolio:
-    driver: bridge
+  #   tty: true
+  #   ports:
+  #     - 80:80
+
+
+  app:
+    build: nestjs-api
+    entrypoint: dockerize -wait tcp://db:5432 -timeout 40s ./.docker/entrypoint.sh
+    container_name: app
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+  db:
+    build: nestjs-api/.docker/postgres
+    container_name: db
+    restart: always
+    tty: true
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=blockhub
+    volumes:
+      - /nest-api/.docker/dbdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+

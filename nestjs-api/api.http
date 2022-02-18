@@ -1,0 +1,85 @@
+POST http://localhost:3000/associates
+Content-type: application/json
+
+{
+    "Nome": "associate test",
+    "Cargo": "back-end dev",
+    "Admissão": "01/01/2022",
+    "Ativo": true
+}
+###
+GET http://localhost:3000/associates
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoidXNlcjFAdXNlci5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MzY1NjEyNTQsImV4cCI6MTYzNjU2MTMxNH0.YHAThK7Xe7Pd4BgZ0GACYKRdpaQ1BTBvK4jjuD26IyY
+###
+GET http://localhost:3000/associates/1
+###
+PATCH  http://localhost:3000/associates/1
+Content-type: application/json
+
+{
+    "Nome": "associate test alterado",
+    "Cargo": "back-end dev alterado"
+}
+###
+DELETE http://localhost:3000/associates/1
+###
+POST http://localhost:3000/projects
+Content-type: application/json
+
+{
+    "Nome": "associate test1",
+    "Descrição": "back-end dev",
+    "Início": "12/01/2022",
+    "Fim": "01/01/2022",
+    "Ativo": true
+}
+###
+GET http://localhost:3000/projects
+###
+GET http://localhost:3000/projects/1
+###
+PATCH  http://localhost:3000/projects/1
+Content-type: application/json
+
+{
+    "associate": 1
+}
+###
+DELETE http://localhost:3000/projects/3
+###
+POST http://localhost:3000/executions
+Content-type: application/json
+
+{
+    "projectId": 1,
+    "associateId": 1,
+    "Inicio": "01/02/2022",
+    "Fim": "01/03/2022",
+    "Ativo": true
+}
+###
+GET http://localhost:3000/executions
+###
+GET http://localhost:3000/executions/2
+###
+PATCH  http://localhost:3000/executions/2
+Content-type: application/json
+
+{
+    "ProjetoId": "1",
+    "ColaboradorId": "1",
+    "Inicio": "2021/01/02"
+}
+###
+DELETE http://localhost:3000/executions/5
+###
+POST http://localhost:3000/login
+Content-type: application/json
+
+{
+    "username": "user2@user.com",
+    "password": "123456"
+}
+###
+GET http://localhost:3000/test-auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoidXNlcjJAdXNlci5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTYzNjU2MjYxNSwiZXhwIjoxNjM2NTYyNjc1fQ.lJedtsJVW3qD2q_PHU-PPIQAwf1Tnu_N_XUYOaiHCTY
